@@ -1,0 +1,7 @@
+
+name: PartKeepr Database installation action
+description: Drop and create the default database for PartKeepr tests
+runs:
+    using: docker
+    image: Dockerfile
+    
