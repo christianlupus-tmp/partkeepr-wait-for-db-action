@@ -6,9 +6,9 @@ echo "Waiting a few seconds for startup"
 
 for i in `seq 1 100`
 do
-  mysql --host=mariadb --port=3307 --protocol=tcp -u partkeepr -ppartkeepr partkeepr_test <<- EOF
+  mysql --host=mariadb --port=3307 --protocol=tcp -u partkeepr -ppartkeepr partkeepr_test << EOF
     SELECT version();
-  EOF
+EOF
   if [ $? -eq 0 ]; then
     break
   fi
