@@ -4,9 +4,9 @@ echo Hello world
 
 echo "Waiting a few seconds for startup"
 
-for i in `seq 1 100`
+for i in `seq 1 50`
 do
-  mysql --host=mariadb --port=3307 --protocol=tcp -u partkeepr -ppartkeepr partkeepr_test << EOF
+  mysql --host=mariadb --port=3306 --protocol=tcp -u partkeepr -ppartkeepr partkeepr_test << EOF
     SELECT version();
 EOF
   if [ $? -eq 0 ]; then
@@ -17,8 +17,8 @@ EOF
   sleep 3
 done
 
-ping -c 1 mariadb
+# ping -c 1 mariadb
 
-mysql --host=mariadb --port=3307 --protocol=tcp -u partkeepr -ppartkeepr partkeepr_test << EOF
+mysql --host=mariadb --port=3306 --protocol=tcp -u partkeepr -ppartkeepr partkeepr_test << EOF
 SHOW DATABASES;
 EOF
