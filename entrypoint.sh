@@ -1,7 +1,5 @@
 #! /bin/bash
 
-echo Hello world
-
 echo "Waiting a few seconds for startup"
 
 for i in `seq 1 50`
