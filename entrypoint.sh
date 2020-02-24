@@ -1,7 +1,5 @@
 #! /bin/bash
 
-set -x
-
 echo Hello world
 
 echo "Waiting a few seconds for startup"
@@ -18,6 +16,8 @@ EOF
   echo "Sleeping..."
   sleep 3
 done
+
+ping -c 1 mariadb
 
 mysql --host=mariadb --port=3307 --protocol=tcp -u partkeepr -ppartkeepr partkeepr_test << EOF
 SHOW DATABASES;
