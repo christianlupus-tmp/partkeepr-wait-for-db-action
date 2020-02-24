@@ -6,7 +6,7 @@ echo "Waiting a few seconds for startup"
 
 for i in `seq 1 50`
 do
-  mysql --host=mariadb --port=3306 --protocol=tcp -u partkeepr -ppartkeepr partkeepr_test << EOF
+  mysql --host=mariadb --port=3306 --protocol=tcp -u partkeepr -ppartkeepr partkeepr_test << EOF 2>/dev/null
     SELECT version();
 EOF
   if [ $? -eq 0 ]; then
@@ -16,9 +16,3 @@ EOF
   echo "Sleeping..."
   sleep 3
 done
-
-# ping -c 1 mariadb
-
-mysql --host=mariadb --port=3306 --protocol=tcp -u partkeepr -ppartkeepr partkeepr_test << EOF
-SHOW DATABASES;
-EOF

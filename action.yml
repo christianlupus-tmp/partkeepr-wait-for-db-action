@@ -1,6 +1,6 @@
 
-name: PartKeepr Database installation action
-description: Drop and create the default database for PartKeepr tests
+name: Wait for PartKeepr database ready
+description: This waits until the database is ready to use
 runs:
     using: docker
     image: Dockerfile
